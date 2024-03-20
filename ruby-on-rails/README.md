@@ -98,12 +98,12 @@ kubectl apply
 
 ### Additional Considerations
 
-Check this (link)[https://github.com/aws/aws-graviton-getting-started/blob/main/transition-guide.md] for the consideration provided by AWS. Some of the more importants for this poc are:
+Check this [link](https://github.com/aws/aws-graviton-getting-started/blob/main/transition-guide.md) for the consideration provided by AWS. Some of the more importants for this poc are:
 
 * Ruby is an Interpreted language same as Node.js or PHP so it should work with minor changes.
 * Upgrading the application to use the latest version of required libraries will increase the probability that the library is supported. Therefore one suggested strategy is to update the libraries and test that it is working in x86, then migrate to ARM.
-* The main issue that I found was with libraries using (c/c++) that needed to be compiled for ARM64 architecture.
-* This (section)[https://github.com/aws/aws-graviton-getting-started/blob/main/transition-guide.md#appendix-a---locating-packages-for-arm64graviton] provides where to locate packages for ARM64/Graviton:
+* The main issue that I found was with libraries using (c/c++) that needed to be compiled for ARM64 architecture. For example [libv8](https://github.com/rubyjs/libv8), binaries are not compiled for ARM. Check this link for the [solution](https://dev.sweatco.in/rails-on-arm/)
+* This [section](https://github.com/aws/aws-graviton-getting-started/blob/main/transition-guide.md#appendix-a---locating-packages-for-arm64graviton) provides where to locate packages for ARM64/Graviton:
     
     *  Package repositories of your chosen Linux distribution(s)
     *  Container image registry.
