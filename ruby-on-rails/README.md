@@ -7,10 +7,13 @@
 #### General Purpose
 * T4g - graviton 2 
 * M7g - graviton 3
+* M7gd - graviton 3
 #### Compute Optimised
 * C7g - graviton 3
+* C7gn - graviton 3
 #### Memory Optimised
 * R7g - graviton 3
+* R7gd - graviton 3
 * X2gd - graviton 2
 #### Accelerated Computing
 * G5g - graviton 2
@@ -108,3 +111,16 @@ Check this [link](https://github.com/aws/aws-graviton-getting-started/blob/main/
     *  Package repositories of your chosen Linux distribution(s)
     *  Container image registry.
     *  On GitHub, you can check for arm64 versions in the release section
+* More details for Amazon EKS optimized Arm Amazon Linux AMIs in this [link](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html#arm-ami):
+
+    * If your cluster was deployed before August 17, 2020, you must do a one-time upgrade of critical cluster add-on manifests. This is so that Kubernetes can pull the correct image for each hardware architecture in use in your cluster.
+    * Applications deployed to Arm nodes must be compiled for Arm.
+    * If you have DaemonSets that are deployed in an existing cluster, or you want to deploy them to a new cluster that you also want to deploy Arm nodes in, then verify that your DaemonSet can run on all hardware architectures in your cluster.
+    * You can run Arm node groups and x86 node groups in the same cluster. If you do, consider deploying multi-architecture container images to a container repository such as Amazon Elastic Container Registry and then adding node selectors to your manifests so that Kubernetes knows what hardware architecture a Pod can be deployed to.
+    * Recommended to check: https://d1.awsstatic.com/events/Summits/reinvent2023/CMP404_Migrating-to-AWS-Graviton-with-AWS-container-services.pdf
+
+* Review and benchmarking of deployment, useful links:
+    * [Graviton Performance Runbook](https://github.com/aws/aws-graviton-getting-started/blob/main/perfrunbook/README.md)
+    * [Optimizing for Graviton](https://github.com/aws/aws-graviton-getting-started/blob/main/optimizing.md)
+    * [Monitoring tools for AWS Graviton](https://github.com/aws/aws-graviton-getting-started/blob/main/Monitoring_Tools_on_Graviton.md)
+   
